@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>直播吧 · 简明观赛指南</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f2f4f7;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      color: #1e2a3a;
+      line-height: 1.6;
+      padding: 2rem 1rem;
+    }
+
+    .page {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    /* hero */
+    .hero {
+      background: linear-gradient(145deg, #ffffff 0%, #f9fafc 100%);
+      border: 1px solid #e2e6ee;
+      border-radius: 24px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+      padding: 3.2rem 2.8rem;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 2.6rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: #0b1b33;
+      margin-bottom: 0.6rem;
+    }
+
+    .hero .sub {
+      font-size: 1rem;
+      color: #566b82;
+      background: #eef1f6;
+      display: inline-block;
+      padding: 0.2rem 1.2rem;
+      border-radius: 40px;
+      margin-bottom: 1.4rem;
+      border: 1px solid #dce1ea;
+    }
+
+    .hero p {
+      max-width: 680px;
+      margin: 0 auto 1.6rem auto;
+      font-size: 1.05rem;
+      color: #2c3f54;
+    }
+
+    .hero .link-sentence {
+      font-size: 1.05rem;
+      background: #eef2f9;
+      padding: 0.9rem 1.6rem;
+      border-radius: 40px;
+      display: inline-block;
+      border: 1px solid #d6dde9;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+    }
+
+    .hero .link-sentence a {
+      color: #0f4e8c;
+      text-decoration: none;
+      font-weight: 600;
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.2s;
+    }
+
+    .hero .link-sentence a:hover {
+      border-bottom-color: #0f4e8c;
+    }
+
+    /* 卡片网格 */
+    .grid-2, .grid-3 {
+      display: grid;
+      gap: 1.8rem;
+      margin-bottom: 2rem;
+    }
+
+    .grid-2 { grid-template-columns: 1fr 1fr; }
+    .grid-3 { grid-template-columns: 1fr 1fr 1fr; }
+
+    .card {
+      background: #ffffff;
+      border: 1px solid #e3e8f0;
+      border-radius: 20px;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.02);
+      padding: 1.8rem 1.8rem 2rem;
+      transition: box-shadow 0.2s;
+    }
+
+    .card:hover {
+      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.05);
+    }
+
+    .card .icon {
+      font-size: 1.8rem;
+      display: inline-block;
+      background: #eef4fc;
+      padding: 0.5rem 0.8rem;
+      border-radius: 40px;
+      margin-bottom: 0.8rem;
+      border: 1px solid #dce5f2;
+      line-height: 1;
+    }
+
+    .card h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: #14273e;
+    }
+
+    .card p, .card li {
+      font-size: 0.95rem;
+      color: #31465c;
+    }
+
+    .card ul {
+      padding-left: 1.2rem;
+      list-style: disc;
+      margin-top: 0.4rem;
+    }
+
+    .card ul li {
+      margin-bottom: 0.25rem;
+    }
+
+    /* 说明区 (FAQ 摘要) */
+    .faq-section {
+      background: #ffffff;
+      border: 1px solid #e3e8f0;
+      border-radius: 20px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.02);
+      padding: 2rem 2.2rem;
+      margin-bottom: 2rem;
+    }
+
+    .faq-section h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 1.2rem;
+      color: #14273e;
+      border-left: 5px solid #3d6a9b;
+      padding-left: 1rem;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid #edf1f7;
+      padding: 1rem 0;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-item strong {
+      display: block;
+      font-weight: 600;
+      color: #1b3048;
+      margin-bottom: 0.2rem;
+    }
+
+    .faq-item span {
+      color: #39516b;
+      font-size: 0.95rem;
+    }
+
+    .faq-item .tag {
+      display: inline-block;
+      background: #eef3fb;
+      color: #0a3c6e;
+      font-size: 0.75rem;
+      font-weight: 500;
+      padding: 0.1rem 0.7rem;
+      border-radius: 30px;
+      margin-left: 0.6rem;
+      border: 1px solid #cbd7e8;
+    }
+
+    /* 底部链接 */
+    .footer-links {
+      background: #ffffff;
+      border: 1px solid #e3e8f0;
+      border-radius: 20px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.02);
+      padding: 1.6rem 2.2rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-links .note {
+      color: #4d657e;
+      font-size: 0.9rem;
+    }
+
+    .footer-links .inline-link {
+      font-size: 1rem;
+    }
+
+    .footer-links .inline-link a {
+      color: #0f4e8c;
+      text-decoration: none;
+      font-weight: 600;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+
+    .footer-links .inline-link a:hover {
+      border-bottom-color: #0f4e8c;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #e3e8f0;
+      margin: 1.6rem 0;
+    }
+
+    /* 响应式 */
+    @media (max-width: 820px) {
+      .grid-2, .grid-3 {
+        grid-template-columns: 1fr;
+        gap: 1.4rem;
+      }
+      .hero {
+        padding: 2.2rem 1.5rem;
+      }
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .faq-section {
+        padding: 1.5rem;
+      }
+      .footer-links {
+        flex-direction: column;
+        gap: 0.8rem;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- hero -->
+  <div class="hero">
+    <h1>观赛 · 简明指南</h1>
+    <div class="sub">直播吧 · 稳定入口</div>
+    <p>
+      无论你关注的是欧洲五大联赛、NBA 季后赛还是电竞赛事，<strong>直播吧</strong>聚合了多条稳定的信号线路。
+      本站仅提供索引与导航，所有内容均来自网络公开资源。
+    </p>
+    <div class="link-sentence">
+      通过 <a href="https://ssl-main-zhibo8.com">直播吧</a> 获取实时比赛链接与赛程列表。
+    </div>
+  </div>
+
+  <!-- 优势区 2 列 -->
+  <div class="grid-2">
+    <div class="card">
+      <div class="icon">⚡</div>
+      <h3>低延迟 · 多线路</h3>
+      <p>每条比赛提供至少两条备用信号源，支持自适应码率。建议优先选用标注「主线路」或「高清」的链接。</p>
+    </div>
+    <div class="card">
+      <div class="icon">🛡️</div>
+      <h3>访问提醒</h3>
+      <ul>
+        <li>部分浏览器需关闭广告拦截插件（仅针对视频流域名）</li>
+        <li>如页面空白，请尝试刷新或切换 Wi‑Fi / 4G</li>
+        <li>推荐使用 Chrome / Edge 最新稳定版</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 说明区 3 列 (更偏场景) -->
+  <div class="grid-3">
+    <div class="card">
+      <div class="icon">📱</div>
+      <h3>移动端适配</h3>
+      <p>页面已对手机屏幕做响应式优化。横屏播放可获得更佳体验。若直播画面卡顿，可尝试降低清晰度。</p>
+    </div>
+    <div class="card">
+      <div class="icon">🔍</div>
+      <h3>比赛检索</h3>
+      <p>顶部搜索栏支持按联赛、球队或时间筛选。每日热门赛事会固定在推荐区。你也可以通过收藏链接直达。</p>
+    </div>
+    <div class="card">
+      <div class="icon">⏱️</div>
+      <h3>时区与赛程</h3>
+      <p>所有开赛时间默认显示为北京时间 (UTC+8)。赛程表每 15 分钟自动更新，加时赛信息同步延迟不超过 2 分钟。</p>
+    </div>
+  </div>
+
+  <!-- FAQ 摘要 -->
+  <div class="faq-section">
+    <h2>常见问题 · 摘要</h2>
+
+    <div class="faq-item">
+      <strong>为什么部分直播链接无法打开？<span class="tag">网络</span></strong>
+      <span>个别境外信号源可能被地区运营商限制。可尝试切换 DNS（如 114.114.114.114）或使用备用线路。直播吧汇总的链接均经过可用性测试，但无法保证 100% 实时连通。</span>
+    </div>
+
+    <div class="faq-item">
+      <strong>页面提示「加载中」超过 10 秒？<span class="tag">缓存</span></strong>
+      <span>建议清除浏览器缓存并刷新。如果使用插件（如 uBlock），请暂时禁用或添加例外规则。也可直接通过 <a href="https://ssl-main-zhibo8.com" style="color:#0f4e8c;text-decoration:underline;">直播吧</a> 首页重新进入。</span>
+    </div>
+
+    <div class="faq-item">
+      <strong>是否需要有账号才能观看？<span class="tag">权限</span></strong>
+      <span>绝大多数比赛无需登录即可观看。极少数付费赛事会标注「会员场」并附带官方购买链接。直播吧不收集任何个人隐私数据。</span>
+    </div>
+  </div>
+
+  <!-- 底部链接 -->
+  <div class="footer-links">
+    <div class="note">
+      ⚽ 数据接口仅供参考 · 请以实际播出为准
+    </div>
+    <div class="inline-link">
+      如有疑问，可返回 <a href="https://ssl-main-zhibo8.com">直播吧</a> 获取最新公告。
+    </div>
+  </div>
+
+  <hr>
+  <div style="text-align: center; font-size: 0.8rem; color: #7b8da0; padding: 1rem 0 0.2rem;">
+    页面更新于 2025-04 · 落地页方向 · 简明指南
+  </div>
+
+</div>
+</body>
+</html>
