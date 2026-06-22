@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中彩网 · 稳定入口 · 页面说明</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            background: linear-gradient(145deg, #fdf5e6 0%, #fbebd2 40%, #f6d9b8 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1.5rem 1rem 2rem;
+            color: #2e241e;
+            line-height: 1.6;
+        }
+
+        .page {
+            max-width: 1100px;
+            width: 100%;
+        }
+
+        /* hero */
+        .hero {
+            text-align: center;
+            padding: 3rem 1.5rem 2.5rem;
+            background: rgba(255, 248, 240, 0.7);
+            backdrop-filter: blur(6px);
+            border-radius: 48px 48px 32px 32px;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 8px 28px rgba(180, 110, 50, 0.08);
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            color: #4c3224;
+            margin-bottom: 1rem;
+        }
+
+        .hero .sub {
+            font-size: 1.2rem;
+            color: #6b4d3a;
+            max-width: 620px;
+            margin: 0 auto 1.6rem;
+            background: rgba(255, 235, 215, 0.5);
+            padding: 0.6rem 1.4rem;
+            border-radius: 60px;
+            display: inline-block;
+            backdrop-filter: blur(2px);
+        }
+
+        .hero p {
+            font-size: 1.05rem;
+            color: #4f3b2f;
+            max-width: 700px;
+            margin: 0.6rem auto;
+        }
+
+        .hero .sentence-link {
+            margin-top: 1.8rem;
+            font-size: 1.1rem;
+        }
+
+        .hero .sentence-link a {
+            font-weight: 500;
+        }
+
+        /* 卡片通用 */
+        .card {
+            background: #ffffffdd;
+            backdrop-filter: blur(4px);
+            border-radius: 28px;
+            padding: 2rem 2.2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 20px rgba(140, 80, 30, 0.06);
+            border: 1px solid rgba(250, 220, 190, 0.4);
+            transition: box-shadow 0.2s;
+        }
+
+        .card:hover {
+            box-shadow: 0 6px 28px rgba(160, 95, 40, 0.08);
+        }
+
+        .card h2 {
+            font-size: 1.6rem;
+            font-weight: 500;
+            color: #3f2a1c;
+            margin-bottom: 1.2rem;
+            padding-bottom: 0.4rem;
+            border-bottom: 2px solid #edd7c0;
+            display: inline-block;
+        }
+
+        .card h3 {
+            font-size: 1.15rem;
+            font-weight: 500;
+            color: #543f30;
+            margin: 1.4rem 0 0.6rem;
+        }
+
+        .card p, .card li {
+            color: #3e2e24;
+        }
+
+        .card ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem 2.2rem;
+            margin-top: 0.8rem;
+        }
+
+        .card ul li {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1rem;
+            padding: 0.3rem 0;
+        }
+
+        .card ul li::before {
+            content: "✦";
+            color: #c2885c;
+            font-size: 1.1rem;
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.4rem 2rem;
+            margin-top: 1rem;
+        }
+
+        .faq-item {
+            background: #faf2ea;
+            padding: 1rem 1.2rem;
+            border-radius: 20px;
+            border-left: 4px solid #dbaa7c;
+        }
+
+        .faq-item strong {
+            display: block;
+            font-weight: 600;
+            color: #3d291e;
+            margin-bottom: 0.3rem;
+            font-size: 1rem;
+        }
+
+        .faq-item p {
+            font-size: 0.95rem;
+            margin: 0;
+            color: #4f3729;
+        }
+
+        .link-group {
+            text-align: center;
+            padding: 1.6rem;
+            margin-top: 0.4rem;
+        }
+
+        .link-group a {
+            display: inline-block;
+            background: #e6d1bc;
+            color: #312119;
+            padding: 0.6rem 2rem;
+            border-radius: 60px;
+            font-weight: 500;
+            text-decoration: none;
+            font-size: 1rem;
+            border: 1px solid #dbb99a;
+            transition: background 0.2s, transform 0.1s;
+            box-shadow: 0 2px 8px rgba(150, 80, 30, 0.08);
+        }
+
+        .link-group a:hover {
+            background: #ddc2a8;
+            transform: scale(1.02);
+            border-color: #c99a75;
+        }
+
+        .footer-links {
+            margin-top: 1.8rem;
+            padding: 1.8rem 0 0.6rem;
+            border-top: 1px solid #decbb8;
+            text-align: center;
+            font-size: 0.95rem;
+            color: #5e4535;
+        }
+
+        .footer-links a {
+            color: #633f2b;
+            text-decoration: none;
+            font-weight: 450;
+            padding: 0 0.4rem;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        .remark {
+            font-size: 0.9rem;
+            color: #6b5240;
+            background: #f6ede4;
+            border-radius: 30px;
+            padding: 0.5rem 1.2rem;
+            display: inline-block;
+            margin-top: 0.8rem;
+        }
+
+        /* 响应式 */
+        @media (max-width: 750px) {
+            .hero h1 { font-size: 2.1rem; }
+            .hero .sub { font-size: 1rem; }
+            .card { padding: 1.6rem; }
+            .faq-grid { grid-template-columns: 1fr; }
+            .card ul { flex-direction: column; gap: 0.4rem; }
+        }
+
+        @media (max-width: 480px) {
+            .hero { padding: 2rem 1rem; }
+            .hero h1 { font-size: 1.8rem; }
+            .link-group a { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- hero 区 -->
+    <div class="hero">
+        <h1>中彩网</h1>
+        <div class="sub">一个稳定的信息入口 · 页面索引与说明</div>
+        <p>
+            无论你从哪个方向来，这里都提供一个直接的路径。<br>
+            许多用户习惯把 <a href="https://portal-webs-zhcw.com" style="color:#844d2b; text-decoration: underline; font-weight:500;">中彩网</a>
+            放在书签栏，因为它足够简单——不绕路，不堆砌。
+        </p>
+        <p style="margin-top:0.4rem; font-size:0.95rem; color:#6e5543;">
+            打开即是内容，没有多余跳转。
+        </p>
+    </div>
+
+    <!-- 优势区 -->
+    <div class="card">
+        <h2>为什么选择这个页面作为入口</h2>
+        <p style="margin-bottom:0.8rem;">
+            日常使用中，一个干净、固定的链接能节省很多时间。我们不做过多的修饰，只把最实用的部分放在前面。
+        </p>
+        <ul>
+            <li>页面结构稳定，很少变动，适合长期引用</li>
+            <li>加载快，适合网络环境一般的场景</li>
+            <li>无强制弹窗或干扰元素</li>
+            <li>可作为功能模块的起始点</li>
+            <li>信息层级清晰，看一眼就知道哪里是哪里</li>
+        </ul>
+        <p style="margin-top: 1rem;">
+            你可以直接通过 <a href="https://portal-webs-zhcw.com" style="color:#7b4f35; font-weight:500;">中彩网</a>
+            访问，也可以把它当作一个稳定的索引页来使用。
+        </p>
+    </div>
+
+    <!-- 说明区 + 场景 -->
+    <div class="card">
+        <h2>页面说明与适用场景</h2>
+        <p>
+            这个页面的定位是「前置入口」——它不试图包揽所有功能，而是把主要的跳转和提示放在明处。
+            下面列举了几种常见的使用方式：
+        </p>
+        <div style="display: flex; flex-wrap: wrap; gap: 1.2rem; margin-top: 1rem;">
+            <div style="flex:1; min-width: 180px; background: #f9ede2; padding:1rem 1.2rem; border-radius: 24px;">
+                <strong style="color: #4f3322;">日常访问</strong>
+                <p style="margin-top:0.3rem; font-size:0.95rem;">直接打开链接即可，页面内容以索引为主，不额外加载无关模块。</p>
+            </div>
+            <div style="flex:1; min-width: 180px; background: #f9ede2; padding:1rem 1.2rem; border-radius: 24px;">
+                <strong style="color: #4f3322;">分享给他人</strong>
+                <p style="margin-top:0.3rem; font-size:0.95rem;">链接短、名称明确，收到的人一眼就知道是什么，不需要解释。</p>
+            </div>
+            <div style="flex:1; min-width: 180px; background: #f9ede2; padding:1rem 1.2rem; border-radius: 24px;">
+                <strong style="color: #4f3322;">作为固定标签页</strong>
+                <p style="margin-top:0.3rem; font-size:0.95rem;">很多用户习惯把它设为浏览器主页或常驻标签，方便随手使用。</p>
+            </div>
+        </div>
+        <p style="margin-top: 1.4rem;">
+            当然，你也可以把它看作一种提示页——<a href="https://portal-webs-zhcw.com" style="color:#7b4f35; font-weight:500;">中彩网</a>
+            始终在那里，不打扰，但随时可用。
+        </p>
+    </div>
+
+    <!-- FAQ 摘要区 -->
+    <div class="card">
+        <h2>常见问题摘要</h2>
+        <div class="faq-grid">
+            <div class="faq-item">
+                <strong>这个页面包含什么内容？</strong>
+                <p>主要是入口说明、功能索引和简要提示，不包含复杂的交互或大量图片。</p>
+            </div>
+            <div class="faq-item">
+                <strong>链接会经常变化吗？</strong>
+                <p>目前保持稳定，域名和路径结构短期内没有变动计划，你可以放心引用。</p>
+            </div>
+            <div class="faq-item">
+                <strong>适合移动端使用吗？</strong>
+                <p>适配了常用屏幕尺寸，手机浏览器上也能获得清晰的阅读体验。</p>
+            </div>
+            <div class="faq-item">
+                <strong>为什么选择这个入口？</strong>
+                <p>因为它简洁、直接，没有多余的中间步骤，适合作为日常访问的起点。</p>
+            </div>
+        </div>
+        <p style="margin-top: 1rem; font-size:0.95rem; color:#5f4738;">
+            如果你还有疑问，不妨直接打开 <a href="https://portal-webs-zhcw.com" style="color:#7b4f35; font-weight:500;">中彩网</a>
+            看看——页面本身会给你更直观的感受。
+        </p>
+    </div>
+
+    <!-- 底部链接区 -->
+    <div class="footer-links">
+        <span>相关链接：</span>
+        <a href="https://portal-webs-zhcw.com" style="font-weight:500;">中彩网</a>
+        <span style="color:#b5937a; margin:0 0.2rem;">·</span>
+        <a href="#">页面说明</a>
+        <span style="color:#b5937a; margin:0 0.2rem;">·</span>
+        <a href="#">常见问题</a>
+        <span style="color:#b5937a; margin:0 0.2rem;">·</span>
+        <a href="#">使用指引</a>
+        <div class="remark">
+            ⚡ 稳定入口 · 信息索引 · 直接访问
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
